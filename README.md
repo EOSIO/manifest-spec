@@ -2,6 +2,13 @@
 
 **Version 0.7**
 
+![EOSIO Labs](https://img.shields.io/badge/EOSIO-LABS-blue.svg)
+
+## About EOSIO Labs
+
+EOSIO Labs repositories are experimental.  Developers in the community are encouraged to use EOSIO Labs repositories as the basis for code and concepts to incorporate into their applications. Community members are also welcome to contribute and further develop these repositories. Since these repositories are not supported by Block.one, we may not provide responses to issue reports, pull requests, updates to functionality, or other requests from the community, and we encourage the community to take responsibility for these.
+
+
 ## Why an Application Manifest?
 1. Provides user agents metadata about the app for use in application listings (history, favorites, app directories, etc.)
 1. Provides app developers with a way to declare which contract actions on a given chain an application on their domain is able to propose to end users
@@ -182,6 +189,8 @@ Here's an example:
   ]
 }
 ```
+
+
 
 ## Important
 
