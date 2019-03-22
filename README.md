@@ -2,7 +2,7 @@
 
 **Version 0.7**
 
-![EOSIO Labs](https://img.shields.io/badge/EOSIO-LABS-blue.svg)
+![EOSIO Labs](https://img.shields.io/badge/EOSIO-Labs-5cb3ff.svg)
 
 ## About EOSIO Labs
 
