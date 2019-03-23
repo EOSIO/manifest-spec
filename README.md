@@ -30,7 +30,7 @@ EOSIO Labs repositories are experimental.  Developers in the community are encou
     * that the contract action(s) in the transaction are whitelisted in the manifest;
     * that the hash of the icon in `app-metadata.json` matches the checksum of the icon file itself;
     * that the hash of `app-metadata.json` matches the hash declared in the provided manifest;
-1. When the user accepts the transaction, the user agent will hash the manifest and add an [assertion action](https://github.com/EOSIO/eosio.assert/blob/master/eosio.assert/abi/eosio.assert.abi) to the transaction so that the chain can validate that the manifest provided to the user agent has been registered for the given domain on that chain. If the manifest's hash is not found on the chain, the chain may reject the transaction.
+1. When the user accepts the transaction, the user agent will hash the manifest and add an [assertion action](https://github.com/EOSIO/eosio.assert) to the transaction so that the chain can validate that the manifest provided to the user agent has been registered for the given domain on that chain. If the manifest's hash is not found on the chain, the chain may reject the transaction.
 
 ## Specification versioning
 
@@ -91,7 +91,7 @@ All of the following fields are required with the exception of `description`, `s
 This specification will be extended later to include additional application metadata (e.g., app screenshots and other listing-related data.)
 
 ## Application Manifest Specification
-Manifests must be registered using the `eosio.assert::add.manifest` action on every chain on which your app will transact. (See: https://github.com/EOSIO/eosio.assert/blob/master/eosio.assert/src/eosio.assert.cpp.) Furthermore, an array of chain manifests must be declared in a publicly available JSON file at the root of the application's `declaredDomain`.
+Manifests must be registered using the `eosio.assert::add.manifest` action on every chain on which your app will transact. (See: https://github.com/EOSIO/eosio.assert ) Furthermore, an array of chain manifests must be declared in a publicly available JSON file at the root of the application's `declaredDomain`.
 
 ### Manifest Fields
 * `account`: The chain account name. This is the account that registered the application manifest.
