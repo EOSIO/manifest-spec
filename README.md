@@ -190,7 +190,15 @@ Here's an example:
 }
 ```
 
+## Contributing
 
+[Contributing Guide](./CONTRIBUTING.md)
+
+[Code of Conduct](./CONTRIBUTING.md#conduct)
+
+## License
+
+[MIT](./LICENSE)
 
 ## Important
 
