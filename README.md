@@ -2,6 +2,8 @@
 
 **Version 0.7**
 
+A specification for metadata describing integrating apps, and the actions they can request from a user. This specification can be used by wallets to provide more information about the app a user is interacting with, and to run transaction pre-flight security checks comparing the contents of a transaction request with what integrating apps have declared about themselves.
+
 ![EOSIO Labs](https://img.shields.io/badge/EOSIO-Labs-5cb3ff.svg)
 
 ## About EOSIO Labs
