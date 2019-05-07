@@ -1,15 +1,22 @@
 # EOSIO Manifest Specification
+[![EOSIO Labs](https://img.shields.io/badge/EOSIO-Labs-5cb3ff.svg)](#about-eosio-labs)
 
-**Version 0.7**
+**Specification Version**: 0.7.0
 
 A specification for metadata describing integrating apps, and the actions they can request from a user. This specification can be used by wallets to provide more information about the app a user is interacting with, and to run transaction pre-flight security checks comparing the contents of a transaction request with what integrating apps have declared about themselves.
 
-![EOSIO Labs](https://img.shields.io/badge/EOSIO-Labs-5cb3ff.svg)
+## Related Reading
+
+This is just one of several thought leadership pieces focusing on wallets, key management and authentication, and the relating user experience. For more context and related reading, check out these these pieces:
+
+* [A Passwordless Future: Building Towards More Secure and Usable Authentication Systems](https://medium.com/eosio/a-passwordless-future-building-towards-more-secure-and-usable-authentication-systems-e188f07e4b87)
+* [EOSIO Labs™ Release: The Universal Authenticator Library (UAL) — Increasing the Accessibility of Blockchain Applications](https://medium.com/eosio/eosio-labs-release-the-universal-authenticator-library-ual-increasing-the-accessibility-of-8e2bd62a78a5)
+* [EOSIO Software Release: Ricardian Contract Specifications and the Ricardian Template Toolkit](https://medium.com/eosio/eosio-software-release-ricardian-contract-specifications-and-the-ricardian-template-toolkit-a0db787429d1)
+* [EOSIO Authentication Transport Protocol Specification](https://github.com/EOSIO/eosio-authentication-transport-protocol-spec)
 
 ## About EOSIO Labs
 
 EOSIO Labs repositories are experimental.  Developers in the community are encouraged to use EOSIO Labs repositories as the basis for code and concepts to incorporate into their applications. Community members are also welcome to contribute and further develop these repositories. Since these repositories are not supported by Block.one, we may not provide responses to issue reports, pull requests, updates to functionality, or other requests from the community, and we encourage the community to take responsibility for these.
-
 
 ## Why an Application Manifest?
 1. Provides user agents metadata about the app for use in application listings (history, favorites, app directories, etc.)
@@ -34,15 +41,15 @@ EOSIO Labs repositories are experimental.  Developers in the community are encou
     * that the hash of `app-metadata.json` matches the hash declared in the provided manifest;
 1. When the user accepts the transaction, the user agent will hash the manifest and add an [assertion action](https://github.com/EOSIO/eosio.assert) to the transaction so that the chain can validate that the manifest provided to the user agent has been registered for the given domain on that chain. If the manifest's hash is not found on the chain, the chain may reject the transaction.
 
-## Specification versioning
+## Specification Versioning
 
 Both the application metadata and chain manifest files defined below include fields defining the version of the manifest specification that they follow. Version numbers follow a semantic versioning (semver) inspired scheme consisting of three integers separated by periods `.` and represent the Major, Minor, and Patch levels in the form `M.m.p`. For example `1.2.3`.
 
 Fields are interpretted as follows:
 
-* Patch: Minor changes that only affect the textual description of the specification with no functional changes to schema, generation, or verification. Updates to non-functional parts of the schema like `title` or `description` fields are permitted.
-* Minor: Backward-compatible changes to the spec and schema. This would include changes such as adding _optional_ fields or loosening of requirements. A manifest based on spec x.y **MUST** be verifiable against spec x.z where y < z.
-* Major: Backward-incompatible changes to the spec and schema. This would include changes such as adding new _required_ fields or tightening of requirements. A manifest based on spec x._ is **NOT** required to be verifiable against spec y._ where x < y.
+* **Patch**: Minor changes that only affect the textual description of the specification with no functional changes to schema, generation, or verification. Updates to non-functional parts of the schema like `title` or `description` fields are permitted.
+* **Minor**: Backward-compatible changes to the spec and schema. This would include changes such as adding _optional_ fields or loosening of requirements. A manifest based on spec x.y **MUST** be verifiable against spec x.z where y < z.
+* **Major**: Backward-incompatible changes to the spec and schema. This would include changes such as adding new _required_ fields or tightening of requirements. A manifest based on spec x._ is **NOT** required to be verifiable against spec y._ where x < y.
 
 ## Application Metadata Specification
 Application metadata must be declared in a publicly available JSON file. The location of this file, along with its checksum hash, will be referenced by the EOSIO chain(s). Having this file referenced on-chain enables EOSIO-compatible user agents to validate the integrity of the metadata and may provide other future benefits. For example, developers could look for these records on the chain and put together public directories of EOSIO-compatible applications.
@@ -93,7 +100,7 @@ All of the following fields are required with the exception of `description`, `s
 This specification will be extended later to include additional application metadata (e.g., app screenshots and other listing-related data.)
 
 ## Application Manifest Specification
-Manifests must be registered using the `eosio.assert::add.manifest` action on every chain on which your app will transact. (See: https://github.com/EOSIO/eosio.assert ) Furthermore, an array of chain manifests must be declared in a publicly available JSON file at the root of the application's `declaredDomain`.
+Manifests must be registered using the `eosio.assert::add.manifest` action on every chain on which your app will transact. (See: https://github.com/EOSIO/eosio.assert.) Furthermore, an array of chain manifests must be declared in a publicly available JSON file at the root of the application's `declaredDomain`.
 
 ### Manifest Fields
 * `account`: The chain account name. This is the account that registered the application manifest.
@@ -143,8 +150,8 @@ This file must reside at the root of your application's declared domain. Consist
 
 * `spec_version`: The specification version as described in [Specification Versioning](#specification-versioning).
 * `manifests`: An array of objects, each of which has two properties:
-** `chainId`: The ID of a chain with which the application will transact.
-** `manifest`: A manifest as described above in [Application Manifest Specification](#application-manifest-specification)
+   * `chainId`: The ID of a chain with which the application will transact.
+   * `manifest`: A manifest as described above in [Application Manifest Specification](#application-manifest-specification).
 
 Here's an example:
 
