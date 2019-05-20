@@ -73,7 +73,7 @@ All of the following fields are required with the exception of `description`, `s
 ### Example
 ```json
 {
-  "spec_version": "0.0.7",
+  "spec_version": "0.7.0",
   "name": "Landeos Property Registry",
   "shortname": "Landeos",
   "scope": "/",
